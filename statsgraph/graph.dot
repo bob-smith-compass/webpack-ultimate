@@ -1,0 +1,24 @@
+digraph G {
+  graph [ rankdir = LR, splines = "ortho", fontsize = 12, label = "5ce4c17e31fb77644236", labelloc = "t", fontname = "gotham-book,sans-serif", compound = true ];
+  node [ fontsize = 12, width = 0, height = 0, margin = "0.2,0.1", fontname = "gotham-book,sans-serif" ];
+  edge [ fontsize = 10, fontname = "gotham-book,sans-serif" ];
+subgraph "cluster_0" {
+  graph [ label = "main [entry] [initial]", fontcolor = "0,0,0.28", bgcolor = "0,0,0.95", color = "0,0,0.55" ];
+  "0" [ fillcolor = "0.2916666666666667,0.19,0.94", color = "0.2916666666666667,0.73,0.71", fontcolor = "0.2916666666666667,0.97,0.35", style = "filled", labelloc = "c", label = "app.js", shape = rarrow, margin = "0.15" ];
+  "1" [ fillcolor = "0.2916666666666667,0.19,0.94", color = "0.2916666666666667,0.73,0.71", fontcolor = "0.2916666666666667,0.97,0.35", style = "filled", labelloc = "c", label = "module.js", shape = rect ];
+  "2" [ fillcolor = "0.2916666666666667,0.19,0.94", color = "0.2916666666666667,0.73,0.71", fontcolor = "0.2916666666666667,0.97,0.35", style = "filled", labelloc = "c", label = "module_b.js", shape = rect ];
+  "3" [ fillcolor = "0.2916666666666667,0.19,0.94", color = "0.2916666666666667,0.73,0.71", fontcolor = "0.2916666666666667,0.97,0.35", style = "filled", labelloc = "c", label = "module_c.js", shape = rect ];
+  "cluster_0hidden" [ style = "invis", label = "", fixedsize = true, margin = "0", width = 0, height = 0 ];
+}
+
+  "0";
+  "1";
+  "2";
+  "3";
+  "file_bundle.js" [ labelloc = "c", label = "bundle.js", shape = rect, fillcolor = "0.625,0.19,0.94", color = "0.625,0.73,0.71", fontcolor = "0.625,0.97,0.35", style = "filled" ];
+  "cluster_0hidden";
+  "0" -> "1" [ arrowsize = .75, color = "0,0.73,0.71" ];
+  "0" -> "2" [ arrowsize = .75, color = "0,0.73,0.71" ];
+  "2" -> "3" [ arrowsize = .75, color = "0,0.73,0.71" ];
+  "cluster_0hidden" -> "file_bundle.js" [ arrowsize = .75, color = "0.625,0.73,0.71", ltail = "cluster_0" ];
+}

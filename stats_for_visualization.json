@@ -1,0 +1,211 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "3.6.0",
+  "hash": "45629e44d6d42f615cb6",
+  "time": 55,
+  "publicPath": "",
+  "assetsByChunkName": {
+    "main": "bundle.js"
+  },
+  "assets": [
+    {
+      "name": "bundle.js",
+      "size": 2957,
+      "chunks": [
+        0
+      ],
+      "chunkNames": [
+        "main"
+      ],
+      "emitted": true
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "main": {
+      "chunks": [
+        0
+      ],
+      "assets": [
+        "bundle.js"
+      ]
+    }
+  },
+  "chunks": [
+    {
+      "id": 0,
+      "rendered": true,
+      "initial": true,
+      "entry": true,
+      "extraAsync": false,
+      "size": 84,
+      "names": [
+        "main"
+      ],
+      "files": [
+        "bundle.js"
+      ],
+      "hash": "96017b1b3d029a896064",
+      "parents": [],
+      "modules": [
+        {
+          "id": 0,
+          "identifier": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+          "name": "./app.js",
+          "index": 0,
+          "index2": 1,
+          "size": 31,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": null,
+          "issuerId": null,
+          "issuerName": null,
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [],
+          "usedExports": true,
+          "providedExports": [],
+          "optimizationBailout": [],
+          "depth": 0,
+          "source": "import F from './module';\n\nF();"
+        },
+        {
+          "id": 1,
+          "identifier": "/Users/v738110/Compass/webpack/webpack-ultimate/module.js",
+          "name": "./module.js",
+          "index": 1,
+          "index2": 0,
+          "size": 53,
+          "cacheable": true,
+          "built": true,
+          "optional": false,
+          "prefetched": false,
+          "chunks": [
+            0
+          ],
+          "assets": [],
+          "issuer": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+          "issuerId": 0,
+          "issuerName": "./app.js",
+          "failed": false,
+          "errors": 0,
+          "warnings": 0,
+          "reasons": [
+            {
+              "moduleId": 0,
+              "moduleIdentifier": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+              "module": "./app.js",
+              "moduleName": "./app.js",
+              "type": "harmony import",
+              "userRequest": "./module",
+              "loc": "1:0-25"
+            }
+          ],
+          "usedExports": [
+            "default"
+          ],
+          "providedExports": [
+            "default"
+          ],
+          "optimizationBailout": [],
+          "depth": 1,
+          "source": "export default function F() {\n    console.log('F');\n}"
+        }
+      ],
+      "filteredModules": 0,
+      "origins": [
+        {
+          "moduleId": 0,
+          "module": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+          "moduleIdentifier": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+          "moduleName": "./app.js",
+          "loc": "",
+          "name": "main",
+          "reasons": []
+        }
+      ]
+    }
+  ],
+  "modules": [
+    {
+      "id": 0,
+      "identifier": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+      "name": "./app.js",
+      "index": 0,
+      "index2": 1,
+      "size": 31,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": null,
+      "issuerId": null,
+      "issuerName": null,
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [],
+      "usedExports": true,
+      "providedExports": [],
+      "optimizationBailout": [],
+      "depth": 0,
+      "source": "import F from './module';\n\nF();"
+    },
+    {
+      "id": 1,
+      "identifier": "/Users/v738110/Compass/webpack/webpack-ultimate/module.js",
+      "name": "./module.js",
+      "index": 1,
+      "index2": 0,
+      "size": 53,
+      "cacheable": true,
+      "built": true,
+      "optional": false,
+      "prefetched": false,
+      "chunks": [
+        0
+      ],
+      "assets": [],
+      "issuer": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+      "issuerId": 0,
+      "issuerName": "./app.js",
+      "failed": false,
+      "errors": 0,
+      "warnings": 0,
+      "reasons": [
+        {
+          "moduleId": 0,
+          "moduleIdentifier": "/Users/v738110/Compass/webpack/webpack-ultimate/app.js",
+          "module": "./app.js",
+          "moduleName": "./app.js",
+          "type": "harmony import",
+          "userRequest": "./module",
+          "loc": "1:0-25"
+        }
+      ],
+      "usedExports": [
+        "default"
+      ],
+      "providedExports": [
+        "default"
+      ],
+      "optimizationBailout": [],
+      "depth": 1,
+      "source": "export default function F() {\n    console.log('F');\n}"
+    }
+  ],
+  "filteredModules": 0,
+  "children": []
+}

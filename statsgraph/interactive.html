@@ -1,0 +1,76 @@
+
+<!--
+* Copyright (c) 2015 Mountainstorm
+* 
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+* 
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+* 
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+-->
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/mountainstorm/jquery.graphviz.svg/master/css/graphviz.svg.css">
+</head>
+
+<style>
+    #instructions {
+        color: #737373;
+        position: absolute;
+        font-size: 8pt;
+        z-index: 100;
+        bottom: 0;
+        left: 0;
+    }
+</style>
+
+<body>
+    <h4 id="instructions">Click node to highlight; Shift-scroll to zoom; Esc to unhighlight; use browser zoom to maintain zoom across refreshes</h4>
+    <div id="graph" style="width: 100%; height: 100%; overflow: scroll;"></div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/jquery/jquery-color/master/jquery.color.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/mountainstorm/jquery.graphviz.svg/master/js/jquery.graphviz.svg.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#graph").graphviz({
+                url: "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9HcmFwaGljcy9TVkcvMS4xL0RURC9zdmcxMS5kdGQiPgo8IS0tIEdlbmVyYXRlZCBieSBncmFwaHZpeiB2ZXJzaW9uIDIuNDAuMSAoMjAxNjEyMjUuMDMwNCkKIC0tPgo8IS0tIFRpdGxlOiBHIFBhZ2VzOiAxIC0tPgo8c3ZnIHdpZHRoPSIzNTFwdCIgaGVpZ2h0PSIxNzhwdCIKIHZpZXdCb3g9IjAuMDAgMC4wMCAzNTAuNzYgMTc4LjAwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KPGcgaWQ9ImdyYXBoMCIgY2xhc3M9ImdyYXBoIiB0cmFuc2Zvcm09InNjYWxlKDEgMSkgcm90YXRlKDApIHRyYW5zbGF0ZSg0IDE3NCkiPgo8dGl0bGU+RzwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9IiNmZmZmZmYiIHN0cm9rZT0idHJhbnNwYXJlbnQiIHBvaW50cz0iLTQsNCAtNCwtMTc0IDM0Ni43NTc4LC0xNzQgMzQ2Ljc1NzgsNCAtNCw0Ii8+Cjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjE3MS4zNzg5IiB5PSItMTU2LjQiIGZvbnQtZmFtaWx5PSJnb3RoYW0tYm9vayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyLjAwIiBmaWxsPSIjMDAwMDAwIj41Y2U0YzE3ZTMxZmI3NzY0NDIzNjwvdGV4dD4KPGcgaWQ9ImNsdXN0MSIgY2xhc3M9ImNsdXN0ZXIiPgo8dGl0bGU+Y2x1c3Rlcl8wPC90aXRsZT4KPHBvbHlnb24gZmlsbD0iI2YyZjJmMiIgc3Ryb2tlPSIjOGM4YzhjIiBwb2ludHM9IjgsLTM2IDgsLTE0MiAzMzQuNzU3OCwtMTQyIDMzNC43NTc4LC0zNiA4LC0zNiIvPgo8dGV4dCB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB4PSIxNzEuMzc4OSIgeT0iLTEyOC40IiBmb250LWZhbWlseT0iZ290aGFtLWJvb2ssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMi4wMCIgZmlsbD0iIzQ3NDc0NyI+bWFpbiBbZW50cnldIFtpbml0aWFsXTwvdGV4dD4KPC9nPgo8IS0tIDAgLS0+CjxnIGlkPSJub2RlMSIgY2xhc3M9Im5vZGUiPgo8dGl0bGU+MDwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9IiNjZGVmYzIiIHN0cm9rZT0iIzUxYjUzMCIgcG9pbnRzPSI1My4wMzIyLC0xMDAuMzMzMyAxNS45ODkzLC0xMDAuMzMzMyAxNS45ODkzLC03Ny42NjY3IDUzLjAzMjIsLTc3LjY2NjcgNTMuMDMyMiwtNzIgNzAuMDMyMiwtODkgNTMuMDMyMiwtMTA2IDUzLjAzMjIsLTEwMC4zMzMzIi8+Cjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjQzLjAxMDciIHk9Ii04NS40IiBmb250LWZhbWlseT0iZ290aGFtLWJvb2ssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMi4wMCIgZmlsbD0iIzE4NTkwMiI+YXBwLmpzPC90ZXh0Pgo8L2c+CjwhLS0gMSAtLT4KPGcgaWQ9Im5vZGUyIiBjbGFzcz0ibm9kZSI+Cjx0aXRsZT4xPC90aXRsZT4KPHBvbHlnb24gZmlsbD0iI2NkZWZjMiIgc3Ryb2tlPSIjNTFiNTMwIiBwb2ludHM9IjE5Mi4yMzIzLC03MCAxMTIuNTE1OCwtNzAgMTEyLjUxNTgsLTQ0IDE5Mi4yMzIzLC00NCAxOTIuMjMyMywtNzAiLz4KPHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTUyLjM3NCIgeT0iLTUzLjQiIGZvbnQtZmFtaWx5PSJnb3RoYW0tYm9vayxzYW5zLXNlcmlmIiBmb250LXNpemU9IjEyLjAwIiBmaWxsPSIjMTg1OTAyIj5tb2R1bGUuanM8L3RleHQ+CjwvZz4KPCEtLSAwJiM0NTsmZ3Q7MSAtLT4KPGcgaWQ9ImVkZ2UxIiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT4wJiM0NTsmZ3Q7MTwvdGl0bGU+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I1MzAzMCIgZD0iTTU3Ljc1NzgsLTcxLjY4NzNDNTcuNzU3OCwtNjQuNTg2NCA1Ny43NTc4LC01OCA1Ny43NTc4LC01OCA1Ny43NTc4LC01OCAxMDUuMDIyNSwtNTggMTA1LjAyMjUsLTU4Ii8+Cjxwb2x5Z29uIGZpbGw9IiNiNTMwMzAiIHN0cm9rZT0iI2I1MzAzMCIgcG9pbnRzPSIxMDUuMDIyNSwtNjAuNjI1MSAxMTIuNTIyNSwtNTggMTA1LjAyMjQsLTU1LjM3NTEgMTA1LjAyMjUsLTYwLjYyNTEiLz4KPC9nPgo8IS0tIDIgLS0+CjxnIGlkPSJub2RlMyIgY2xhc3M9Im5vZGUiPgo8dGl0bGU+MjwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9IiNjZGVmYzIiIHN0cm9rZT0iIzUxYjUzMCIgcG9pbnRzPSIxOTguNTc5NiwtMTE0IDEwNi4xNjg1LC0xMTQgMTA2LjE2ODUsLTg4IDE5OC41Nzk2LC04OCAxOTguNTc5NiwtMTE0Ii8+Cjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjE1Mi4zNzQiIHk9Ii05Ny40IiBmb250LWZhbWlseT0iZ290aGFtLWJvb2ssc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMi4wMCIgZmlsbD0iIzE4NTkwMiI+bW9kdWxlX2IuanM8L3RleHQ+CjwvZz4KPCEtLSAwJiM0NTsmZ3Q7MiAtLT4KPGcgaWQ9ImVkZ2UyIiBjbGFzcz0iZWRnZSI+Cjx0aXRsZT4wJiM0NTsmZ3Q7MjwvdGl0bGU+CjxwYXRoIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2I1MzAzMCIgZD0iTTcwLjA0NDQsLTk3QzcwLjA0NDQsLTk3IDk4LjU2ODUsLTk3IDk4LjU2ODUsLTk3Ii8+Cjxwb2x5Z29uIGZpbGw9IiNiNTMwMzAiIHN0cm9rZT0iI2I1MzAzMCIgcG9pbnRzPSI5OC41Njg1LC05OS42MjUxIDEwNi4wNjg1LC05NyA5OC41Njg0LC05NC4zNzUxIDk4LjU2ODUsLTk5LjYyNTEiLz4KPC9nPgo8IS0tIDMgLS0+CjxnIGlkPSJub2RlNCIgY2xhc3M9Im5vZGUiPgo8dGl0bGU+MzwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9IiNjZGVmYzIiIHN0cm9rZT0iIzUxYjUzMCIgcG9pbnRzPSIzMjYuNzczNCwtMTE0IDIzNC43MTA5LC0xMTQgMjM0LjcxMDksLTg4IDMyNi43NzM0LC04OCAzMjYuNzczNCwtMTE0Ii8+Cjx0ZXh0IHRleHQtYW5jaG9yPSJtaWRkbGUiIHg9IjI4MC43NDIyIiB5PSItOTcuNCIgZm9udC1mYW1pbHk9ImdvdGhhbS1ib29rLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIuMDAiIGZpbGw9IiMxODU5MDIiPm1vZHVsZV9jLmpzPC90ZXh0Pgo8L2c+CjwhLS0gMiYjNDU7Jmd0OzMgLS0+CjxnIGlkPSJlZGdlMyIgY2xhc3M9ImVkZ2UiPgo8dGl0bGU+MiYjNDU7Jmd0OzM8L3RpdGxlPgo8cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNiNTMwMzAiIGQ9Ik0xOTguNzE3OSwtMTAxQzE5OC43MTc5LC0xMDEgMjI2Ljk2NjQsLTEwMSAyMjYuOTY2NCwtMTAxIi8+Cjxwb2x5Z29uIGZpbGw9IiNiNTMwMzAiIHN0cm9rZT0iI2I1MzAzMCIgcG9pbnRzPSIyMjYuOTY2NCwtMTAzLjYyNTEgMjM0LjQ2NjQsLTEwMSAyMjYuOTY2MywtOTguMzc1MSAyMjYuOTY2NCwtMTAzLjYyNTEiLz4KPC9nPgo8IS0tIGNsdXN0ZXJfMGhpZGRlbiAtLT4KPCEtLSBmaWxlX2J1bmRsZS5qcyAtLT4KPGcgaWQ9Im5vZGU2IiBjbGFzcz0ibm9kZSI+Cjx0aXRsZT5maWxlX2J1bmRsZS5qczwvdGl0bGU+Cjxwb2x5Z29uIGZpbGw9IiNjMmNkZWYiIHN0cm9rZT0iIzMwNTFiNSIgcG9pbnRzPSIxOTAuNDA5MiwtMjYgMTE0LjMzODksLTI2IDExNC4zMzg5LDAgMTkwLjQwOTIsMCAxOTAuNDA5MiwtMjYiLz4KPHRleHQgdGV4dC1hbmNob3I9Im1pZGRsZSIgeD0iMTUyLjM3NCIgeT0iLTkuNCIgZm9udC1mYW1pbHk9ImdvdGhhbS1ib29rLHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTIuMDAiIGZpbGw9IiMwMjE4NTkiPmJ1bmRsZS5qczwvdGV4dD4KPC9nPgo8IS0tIGNsdXN0ZXJfMGhpZGRlbiYjNDU7Jmd0O2ZpbGVfYnVuZGxlLmpzIC0tPgo8ZyBpZD0iZWRnZTQiIGNsYXNzPSJlZGdlIj4KPHRpdGxlPmNsdXN0ZXJfMGhpZGRlbiYjNDU7Jmd0O2ZpbGVfYnVuZGxlLmpzPC90aXRsZT4KPHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMzA1MWI1IiBkPSJNNDMuNzU3OCwtMzYuMDAxN0M0My43NTc4LC0yNi41MzY5IDQzLjc1NzgsLTEzIDQzLjc1NzgsLTEzIDQzLjc1NzgsLTEzIDEwNi41OCwtMTMgMTA2LjU4LC0xMyIvPgo8cG9seWdvbiBmaWxsPSIjMzA1MWI1IiBzdHJva2U9IiMzMDUxYjUiIHBvaW50cz0iMTA2LjU4LC0xNS42MjUxIDExNC4wOCwtMTMgMTA2LjU4LC0xMC4zNzUxIDEwNi41OCwtMTUuNjI1MSIvPgo8L2c+CjwvZz4KPC9zdmc+Cg==",
+                shrink: 0,
+                ready: function () {
+                    const gv = this;
+                    gv.nodes().click(function () {
+                        let $set = $();
+                        $set.push(this);
+                        $set = $set.add(gv.linkedFrom(this, true));
+                        $set = $set.add(gv.linkedTo(this, true));
+                        gv.highlight($set, true);
+                        gv.bringToFront($set)
+                    });
+                    $(document).keydown(function (evt) {
+                        if (evt.keyCode === 27) {
+                            gv.highlight()
+                        }
+                    })
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
